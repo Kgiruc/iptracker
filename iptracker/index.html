@@ -4,6 +4,12 @@
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+                                  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+                                  crossorigin=""></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vite App</title>
 </head>
@@ -12,7 +18,7 @@
 bg-no-repeat w-full h-96 relative">
     <h1 class="text-4xl font-medium text-white mt-14 mb-8">IP Address Tracker</h1>
     <div class="flex gap-0 rounded">
-        <input class="w-[40vw] rounded-l-xl p-4.5 h-15">
+        <input  type="text" id="text" class="w-[40vw] rounded-l-xl p-4.5 h-15">
     
         <button id="button" class="bg-neutral-900 w-16 h-16 bg-[url('./images/icon-arrow.svg')]
                        bg-center bg-no-repeat rounded-r-lg hover:bg-neutral-700">
@@ -20,7 +26,7 @@ bg-no-repeat w-full h-96 relative">
     </div>
     <div class="absolute bg-white border -bottom-24 w-10/12 h-44 rounded-xl font-rubik tracking-wider">
         <ul class="flex justify-center gap-5 text-left p-7 pt-10">
-            <li class=" border-r-2 pl-0 w-1/4 h-auto">
+            <li class=" border-r-2 pl-0 w-1/4 max-h-22">
                 <span class="font-medium  text-gray-500 text-sm">IP ADDRESS</span>
                 <p id="ip" class="text-3xl font-medium mt-3 mb-3">-</p>
             </li>
@@ -32,14 +38,15 @@ bg-no-repeat w-full h-96 relative">
                 <a class="font-medium  text-gray-500 text-sm">TIMEZONE</a>
                 <p id="time" class="text-3xl font-medium mt-3 mb-3">-</p>
             </li>
-            <li class=" border-r-2 pl-0 w-1/4">
+            <li class="pl-0 w-1/4">
                 <a class="font-medium  text-gray-500 text-sm">ISP</a>
                 <p id="isp" class="text-3xl font-medium mt-3 mb-3">-</p>
             </li>
         </ul>
     </div>
 </nav>
+<div id="map" class="h-[70vh] z-[-1]"></div>
 <script type="module" src="main.js"></script>
-</body>
 
+</body>
 </html>
