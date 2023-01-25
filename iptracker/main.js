@@ -20,7 +20,7 @@ function result() {
 
     const myIcon = L.icon({
         iconUrl: pin,
-        iconSize: [40, 60],
+        iconSize: [50, 60],
         iconAnchor: [22, 94],
         popupAnchor: [-3, -76],
     })
