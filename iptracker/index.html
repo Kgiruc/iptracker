@@ -2,50 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <link rel="icon" type="image/svg+xml" href="images/icon-arrow.svg"/>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
           integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
           crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-                                  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-                                  crossorigin=""></script>
+            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+            crossorigin=""></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Vite App</title>
+    <title>IP Tracker</title>
 </head>
 <body>
 <nav class=" flex flex-col justify-start items-center font-rubik bg-[url('./images/pattern-bg.png')] bg-cover bg-center 
-bg-no-repeat w-full h-96 relative">
-    <h1 class="text-4xl font-medium text-white mt-14 mb-8">IP Address Tracker</h1>
+             bg-no-repeat w-full h-80 lg:h-96 relative">
+    <h1 class="text-3xl lg:text-4xl font-medium text-white mt-7 lg:mt-14 mb-4 lg:mb-8">IP Address Tracker</h1>
     <div class="flex gap-0 rounded">
-        <input  type="text" id="text" class="w-[40vw] rounded-l-xl p-4.5 h-15">
-    
-        <button id="button" class="bg-neutral-900 w-16 h-16 bg-[url('./images/icon-arrow.svg')]
+        <input placeholder="Search for any IP address or domain" type="text" id="text"
+               class="w-[70vw] lg:w-[40vw] rounded-l-xl p-2 lg:p-4.5 h-14 lg:h-16 pl-4 lg:pl-7 font-rubik text-lg placeholder:text-sm lg:placeholder:text-xl lg:text-xl lg:tracking-wide">
+        <button id="button" class="bg-neutral-900 w-14 h-14 lg:w-16 lg:h-16 bg-[url('./images/icon-arrow.svg')]
                        bg-center bg-no-repeat rounded-r-lg hover:bg-neutral-700">
         </button>
     </div>
-    <div class="absolute bg-white border -bottom-24 w-10/12 h-44 rounded-xl font-rubik tracking-wider">
-        <ul class="flex justify-center gap-5 text-left p-7 pt-10">
-            <li class=" border-r-2 pl-0 w-1/4 max-h-22">
-                <span class="font-medium  text-gray-500 text-sm">IP ADDRESS</span>
-                <p id="ip" class="text-3xl font-medium mt-3 mb-3">-</p>
+    <div class="absolute bg-white border -bottom-48 lg:-bottom-24 w-10/12 h-auto rounded-xl font-rubik tracking-wider">
+        <ul class="flex flex-col lg:flex-row justify-center lg:gap-5 text-center lg:text-left p-7 pt-5 lg:pt-10">
+            <li class="pl-0 lg:w-1/4">
+                <span class="font-medium  text-gray-500 text-xs lg:text-sm">IP ADDRESS</span>
+                <p id="ip" class="text-lg lg:text-3xl font-medium mt-3 mb-3">-</p>
             </li>
-            <li class="border-r-2 pl-0 w-1/4">
-                <span class="font-medium  text-gray-500 text-sm">LOCATION</span>
-                <p id="location" class="text-3xl font-medium mt-3 mb-3">-</p>
+            <li class="lg:border-r-2 pl-0 lg:w-1/4">
+                <span class="font-medium  text-gray-500 text-xs lg:text-sm">LOCATION</span>
+                <p id="location" class="text-lg lg:text-3xl font-medium mt-3 mb-3">-</p>
             </li>
-            <li class="border-r-2 pl-0 w-1/4">
-                <a class="font-medium  text-gray-500 text-sm">TIMEZONE</a>
-                <p id="time" class="text-3xl font-medium mt-3 mb-3">-</p>
+            <li class="lg:border-r-2 pl-0 lg:w-1/4">
+                <a class="font-medium  text-gray-500 text-xs lg:text-sm">TIMEZONE</a>
+                <p id="time" class="text-lg lg:text-3xl font-medium mt-3 mb-3">-</p>
             </li>
-            <li class="pl-0 w-1/4">
-                <a class="font-medium  text-gray-500 text-sm">ISP</a>
-                <p id="isp" class="text-3xl font-medium mt-3 mb-3">-</p>
+            <li class="pl-0 lg:w-1/4">
+                <a class="font-medium  text-gray-500 text-xs lg:text-sm">ISP</a>
+                <p id="isp" class="text-lg lg:text-3xl font-medium mt-3 mb-3">-</p>
             </li>
         </ul>
     </div>
 </nav>
-<div id="map" class="h-[70vh] z-[-1]"></div>
+<div id="map" class="h-[64.5vh] md:h-[78vh] lg:h-[70.5vh] z-[-1]"></div>
 <script type="module" src="main.js"></script>
 
 </body>

@@ -1,8 +1,14 @@
 import "/style.css"
+import pin from "./images/pin.png"
 
 const ipAddress = document.getElementById("text")
-const searchbar = document.getElementById('button');
 
+const map = L.map('map').setView([1, 1], 17);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 100,
+}).addTo(map);
+
+map.removeControl(map.zoomControl);
 
 function result() {
     const ipId = document.getElementById("ip");
@@ -13,8 +19,8 @@ function result() {
     const link = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_KEY}&ipAddress=${ipAddress.value}`
 
     const myIcon = L.icon({
-        iconUrl: './images/icon-location.svg',
-        iconSize: [40, 50],
+        iconUrl: pin,
+        iconSize: [40, 60],
         iconAnchor: [22, 94],
         popupAnchor: [-3, -76],
     })
@@ -31,20 +37,11 @@ function result() {
 
                 const x = data.location.lat
                 const y = data.location.lng
-                const map = L.map('map').setView([x, y], 17);
-                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 100,
-                }).addTo(map);
-                L.marker([x,y], {icon: myIcon}).addTo(map);
-
-
+                map.flyTo([x,y], 17)
+                L.marker([x, y], {icon: myIcon}).addTo(map);
             }
         )
         .catch(error => console.log("Błąd: ", error.message));
-
-    console.log(ipAddress.value)
 }
-
-
 
 ipAddress.addEventListener("change", result)
